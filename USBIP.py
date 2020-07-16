@@ -7,9 +7,8 @@ class BaseStucture:
     def __init__(self, **kwargs):
         self.init_from_dict(**kwargs)
         for field in self._fields_:
-            if len(field) > 2:
-                if not hasattr(self, field[0]):
-                    setattr(self, field[0], field[2])
+            if len(field) > 2 and not hasattr(self, field[0]):
+                setattr(self, field[0], field[2])
 
     def init_from_dict(self, **kwargs):
         for key, value in kwargs.items():
